@@ -14,4 +14,5 @@ setopt EXTENDED_HISTORY
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY
 
-export PATH="$HOME/.local/bin:$PATH"
+typeset -U path PATH
+path=("$HOME/.local/bin" $path)
