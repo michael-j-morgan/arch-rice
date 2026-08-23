@@ -248,4 +248,4 @@ client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
 client.background        $base
 
 # VMware Fusion guest clipboard integration
-exec --no-startup-id /usr/bin/vmware-user-suid-wrapper
+exec --no-startup-id sh -c '[ -x /usr/bin/vmware-user-suid-wrapper ] && exec /usr/bin/vmware-user-suid-wrapper'
