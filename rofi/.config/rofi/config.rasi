@@ -13,4 +13,5 @@ configuration{
     sidebar-mode: true;
 }
 
-@theme "catppuccin-mocha"
+//@theme "catppuccin-mocha"
+@theme "Arc-Dark"
