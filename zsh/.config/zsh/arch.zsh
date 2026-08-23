@@ -5,6 +5,7 @@ function lastpaclog() {
 pacdo() {
   mkdir -p ~/pacman-logs
   local timestamp=$(date +%F_%H-%M-%S)
+  if [ $# -eq 0 ]; then echo "Usage: pacdo {install|remove|log|info} [...]"; return 1; fi
   local action=$1
   shift
 
