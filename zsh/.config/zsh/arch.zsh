@@ -1,5 +1,10 @@
 function lastpaclog() {
-  less "$(ls -t ~/pacman-logs/pacman-syu-*.log | head -n1)"
+  local -a logs=(~/pacman-logs/pacman-syu-*.log(Nom[1]))
+  if (( ${#logs} == 0 )); then
+    print -r -- "No pacman update logs found."
+    return 1
+  fi
+  less -- "${logs[1]}"
 }
 
 pacdo() {
