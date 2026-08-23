@@ -7,12 +7,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt SHARE_HISTORY
-setopt APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt EXTENDED_HISTORY
 setopt HIST_REDUCE_BLANKS
-setopt INC_APPEND_HISTORY
 
 typeset -U path PATH
 path=("$HOME/.local/bin" $path)
