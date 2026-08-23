@@ -13,17 +13,21 @@ pacdo() {
     install)
       if [ $# -eq 0 ]; then echo "Usage: pacdo install <package(s)>"; return 1; fi
       sudo pacman -S "$@" 2>&1 | tee ~/pacman-logs/install-"$*"-"$timestamp".log
+      return ${pipestatus[1]}
       ;;
     remove)
       if [ $# -eq 0 ]; then echo "Usage: pacdo remove <package(s)>"; return 1; fi
       sudo pacman -R "$@" 2>&1 | tee ~/pacman-logs/remove-"$*"-"$timestamp".log
+      return ${pipestatus[1]}
       ;;
     log)
       sudo pacman -Syu 2>&1 | tee ~/pacman-logs/pacman-syu-"$timestamp".log
+      return ${pipestatus[1]}
       ;;
     info)
       if [ $# -eq 0 ]; then echo "Usage: pacdo info <package(s)>"; return 1; fi
       pacman -Qi "$@" 2>&1 | tee ~/pacman-logs/info-"$*"-"$timestamp".log
+      return ${pipestatus[1]}
       ;;
     *)
       echo "Usage: pacdo {install|remove|log|info} [...]"
@@ -36,12 +40,14 @@ pacinst() {
   mkdir -p ~/pacman-logs
   local timestamp=$(date +%F_%H-%M-%S)
   sudo pacman -S "$@" 2>&1 | tee ~/pacman-logs/install-"$*"-"$timestamp".log
+  return ${pipestatus[1]}
 }
 
 paclog() {
   mkdir -p ~/pacman-logs
   local timestamp=$(date +%F_%H-%M-%S)
   sudo pacman -Syu 2>&1 | tee ~/pacman-logs/pacman-syu-"$timestamp".log
+  return ${pipestatus[1]}
 }
 
 pacrm() {
@@ -52,10 +58,12 @@ pacrm() {
   mkdir -p ~/pacman-logs
   local timestamp=$(date +%F_%H-%M-%S)
   sudo pacman -R "$@" 2>&1 | tee ~/pacman-logs/remove-"$*"-"$timestamp".log
+  return ${pipestatus[1]}
 }
 
 pacinfo() {
   mkdir -p ~/pacman-logs
   local timestamp=$(date +%F_%H-%M-%S)
   pacman -Qi "$@" 2>&1 | tee ~/pacman-logs/info-"$*"-"$timestamp".log
+  return ${pipestatus[1]}
 }
