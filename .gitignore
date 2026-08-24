@@ -1,0 +1,41 @@
+# Secrets and environment files
+.env
+.env.*
+*.secret
+*.secrets
+credentials
+credentials.*
+*.credentials
+
+# Private keys and certificates
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Shell histories
+.zsh_history
+.bash_history
+.python_history
+
+# Logs
+*.log
+
+# Editor temporary files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Local caches
+.cache/
+
+# Common local override files
+*.local
+*.local.*
+!*.local/
+!*.local.*/
